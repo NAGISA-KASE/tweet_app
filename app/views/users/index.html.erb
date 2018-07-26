@@ -1,0 +1,20 @@
+<div class="main users-index">
+	<div class="container">
+		<div class="title">
+			<h2>ユーザー一覧</h2>
+		</div>
+		<% @users.each do |user| %>
+			<div class="users-index-item">
+				<div class="user-left">
+					<img src="<%= "/user_images/#{user.image_name}" %>">
+				</div>
+				<div class="user-right">
+					<ul>
+						<li class="user-name"><%= link_to(user.name, "/users/#{user.id}") %></li>
+						<li class="user-account"><%= "@" + user.account_name %></li>
+					</ul>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TweetApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <% if @current_user %>
+          <%= link_to("TweetApp", "/posts/index") %>
+        <% else %>
+          <%= link_to("TweetApp", "/") %>
+        <% end %>
+      </div>
+      <div class="header-menus">
+        <ul>
+          <% if session[:user_id] %>
+            <!-- ログイン中に表示するメニュー -->
+            <li><%= link_to("みんなのつぶやき", "/posts/index") %></li>
+            <li><%= link_to("新規投稿", "/posts/new") %></li>
+            <li><%= link_to("ユーザー一覧", "/users/index") %></li>
+            <li><%= link_to("ログアウト", "/logout", {method: :post}) %></li>
+            <li><%= link_to("/users/#{@current_user.id}") do %>
+                  <img src="<%= "/user_images/#{@current_user.id}.jpg" %>">
+                <% end %>
+            </li>
+          <% else %>
+            <!-- ログアウト中に表示するメニュー -->
+            <li><%= link_to("TweetAppとは", "/about") %></li>
+            <li><%= link_to("新規登録", "/signup") %></li>
+            <li><%= link_to("ログイン", "/login") %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<div class="main posts-index">
+	<div class="container">
+		<div class="title">
+			<h2>みんなのつぶやき</h2>
+		</div>
+		<% @posts.each do |post| %>
+			<div class="posts-index-item">
+				<div class="post-left">
+					<img src="<%= "/user_images/#{post.user.image_name}" %>">
+				</div>
+				<div class="post-right">
+					<div class="post-user-name">
+						<%= link_to(post.user.name, "/users/#{post.user.id}") %>
+					</div>
+					<span class="user-account">
+						<%= "@" + post.user.account_name %>
+					</span>
+					<div class="clear"></div>
+					<div class="post-content">
+						<%= link_to(post.content, "/posts/#{post.id}") %>
+					</div>
+				</div>
+				<div class="post-bottom-right post-time">
+					<%= post.post_time(post[:created_at]) %>
+				</div>
+				<div class="post-bottom-left">
+					<% if Like.find_by(user_id: @current_user.id, post_id: post.id) %>
+						<%= link_to("/likes/#{post.id}/destroy_index", {method: "post"}) do %>
+							<span class="fas fa-heart like-btn-unlike"></span>
+						<% end %>
+						<%= Like.where(post_id: post.id).count %>
+					<% else %>
+						<%= link_to("/likes/#{post.id}/create_index", {method: "post"}) do %>
+							<span class="fas fa-heart like-btn"></span>
+						<% end %>
+						<%= Like.where(post_id: post.id).count %>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

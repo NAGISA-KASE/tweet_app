@@ -1,0 +1,139 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.attention {
+	font-size: 14px;
+	color: gray;
+	padding-left: 8px;
+}
+
+// 吹き出し ----------------------------
+.balloon {
+	position: relative;
+	display: inline-block;
+ 	margin: 1.5em 0;
+	padding: 7px 10px;
+	min-width: 120px;
+ 	max-width: 100%;
+ 	color: #555;
+	box-shadow: 0 2px 6px #c1ced7;
+	background: rgba(190, 224, 206, 0.7);
+ 	border-radius: 5px;
+ 	
+
+ 	p {
+ 		margin: 0;
+ 		padding: 5px 10px;
+ 		font-size: 16px;
+ 	}
+}
+
+.balloon:before {
+	content: "";
+	position: absolute;
+	top: -30px;
+	left: 50%;
+ 	margin-left: -15px;
+	border: 15px solid transparent;
+	border-bottom: 15px solid rgba(190, 224, 206, 0.7);
+ 	z-index: 2;
+}
+
+
+
+.users-index-item {
+	background-color: white;
+	width: 100%;
+	padding: 20px;
+	overflow: hidden;
+	box-shadow: 0 2px 6px #c1ced7; 
+	display: table;
+
+	a {
+		color: black;
+	}
+}
+
+.user-left {
+	float: left;
+	width: 10%;
+
+	img {
+	  width: 60px;
+	  height: 60px;
+	  border-radius: 50%;
+	  box-shadow: 0 2px 6px #c1ced7;
+	  object-fit: cover;
+	}
+}
+
+.user-right {
+  width: 90%;
+ 	 padding-left: 25px;
+  text-align: left;
+  display: table-cell;
+  vertical-align: middle;
+
+  .user-name {
+  	font-weight: 600;
+  }
+
+  .user-account {
+  	font-size: 15px;
+  	color: #606060;
+  }
+}
+
+
+/* users/show ================================================== */
+
+.user-show {
+	text-align: center;
+}
+
+.user{
+	img {
+		width: 90px;
+		height: 90px;
+		border-radius: 50%;
+		box-shadow: 0 2px 6px #c1ced7;
+		margin: 20px 0 10px;
+		object-fit: cover;
+	}
+
+	a {
+		color: gray;
+	}	
+} 
+
+.user-tabs {
+	margin-top: 30px;
+	overflow: hidden;
+	background-color: white;
+	box-shadow: 0 2px 6px #c1ced7;
+
+	li {
+		float: left;
+		padding: 15px 20px;
+	}
+
+	a {
+		color: gray;
+	}
+}
+
+.active {
+	border-bottom: 2px solid rgb(44, 180, 173);
+	
+	a {
+		color: black;
+	}
+}
+
+
+/* users/edit ============================================ */
+
+.users-form {
+	text-align: left;
+}
