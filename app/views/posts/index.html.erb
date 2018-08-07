@@ -6,7 +6,12 @@
 		<% @posts.each do |post| %>
 			<div class="posts-index-item">
 				<div class="post-left">
-					<img src="<%= "/user_images/#{post.user.image_name}" %>">
+					<!-- <img src="<%= "/user_images/#{post.user.image_name}" %>"> -->
+					<% if post.user.avatar_url %>
+						<%= image_tag(post.user.avatar_url) %>
+					<% else %>
+						<%= image_tag("/user_images/default_user.jpeg") %>
+					<% end %>
 				</div>
 				<div class="post-right">
 					<div class="post-user-name">

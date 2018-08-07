@@ -13,10 +13,11 @@ Rails.application.routes.draw do
   get "users/index" # ユーザー一覧ページ
   get "users/:id" => "users#show" # ユーザー詳細ページ
   get "signup" => "users#new" # 新規登録ページ
-  post "users/create" => "users#create" # 新規登録保存機能
+  post "users/create" => "users#create", as:"users" # 新規登録保存機能
 
   get "users/:id/edit" => "users#edit" # ユーザー編集ページ
-  post "users/:id/update" => "users#update" # ユーザー編集内容保存機能
+  #post "users/:id/update" , as:"users"
+  patch "users/:id/update" => "users#update", as:"user" # ユーザー編集内容保存機能
   get "users/:id/likes" => "users#likes" #ユーザーがいいね！した投稿一覧ページ
   # ---------------------- posts ----------------------------------
   get "posts/index" => "posts#index"  # 投稿一覧

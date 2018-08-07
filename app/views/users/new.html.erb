@@ -11,18 +11,21 @@
 						<%= message %>
 					</div>
 				<% end %>
-				<%= form_tag("/users/create") do %>
-					<p>名前</p>
+				<%= form_with model: @user do |f| %>
+					<%= f.label :name, "名前" %>
 					<p class="attention">※16文字以内。名前は後から変更できます。</p>
-					<input name="name" value="<%= @user.name %>">
-					<p>アカウント名</p>
+					<%= f.text_field :name, value: @user.name %>
+
+					<%= f.label :account_name, "アカウント名" %>
 					<p class="attention">※半角英数字14文字以内。 「@アカウント名」となります。</p>
-					<input name="account_name" value="<%= @user.account_name %>">
-					<p>メールアドレス</p>
-					<input  name="email" value="<%= @user.email %>">
-					<p>パスワード</p>
-					<input type="password" name="password" value="<%= @user.password %>">
-					<p><input type="submit" value="新規登録"></p>
+					<%= f.text_field :account_name, value: @user.account_name %>
+
+					<%= f.label :email, "メールアドレス" %>
+					<%= f.text_field :email, value: @user.email %>
+
+					<%= f.label :password, "パスワード" %>
+					<%= f.password_field :password, value: @user.password %>
+					<%= f.submit "新規登録" %>
 				<% end %>
 			</div>
 		</div>

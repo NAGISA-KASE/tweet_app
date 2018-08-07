@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 	has_secure_password
+	mount_uploader :avatar, AvatarUploader
 
 	validates :name, {presence: true, length: {maximum: 16}}
 	validates :email, {presence: true, uniqueness: true}

@@ -60,3 +60,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # 2018/7/3 エラーメッセージ日本語化
 gem 'rails-i18n'
+
+#gem "aws-sdk-s3", require: false
+gem 'heroku'
+
+gem 'cloudinary'
+gem 'carrierwave'
+

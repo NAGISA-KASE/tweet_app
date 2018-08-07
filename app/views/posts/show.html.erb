@@ -2,7 +2,12 @@
 	<div class="container">
 		<div class="posts-show-item">
 			<div class="post-user-name">
-				<img src="<%= "/user_images/#{@user.image_name}" %>">
+				<!-- <img src="<%= "/user_images/#{@user.image_name}" %>"> -->
+				<% if @user.avatar_url %>
+					<%= image_tag(@user.avatar_url) %>
+				<% else %>
+					<%= image_tag("/user_images/default_user.jpeg") %>
+				<% end %>
 				<ul>
 					<li><%= link_to(@user.name, "/users/#{@user.id}") %></li>
 					<li class="user-account"><%= "@" + @user.account_name %></li>

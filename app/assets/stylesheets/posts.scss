@@ -112,8 +112,8 @@
 	}
 
 	img {
-		width: 70px;
-		height: 70px;
+		width: 60px;
+		height: 60px;
 		border-radius: 50%;
 		box-shadow: 0 2px 6px #c1ced7;
 		vertical-align: middle;
@@ -125,8 +125,12 @@
 
 		a {
 			vertical-align: middle;
-			padding-left: 10px;
+			/* padding-left: 10px; */
 			color: black;
+		}
+
+		li {
+			padding-left: 10px;
 		}
 	}
 

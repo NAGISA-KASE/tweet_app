@@ -1,7 +1,8 @@
 <div class="main user-show">
 	<div class="container">
 		<div class="user">
-			<img src="<%= "/user_images/#{@user.image_name}" %>">
+			<!-- <img src="<%= "/user_images/#{@user.image_name}" %>"> -->
+			<%= image_tag(@user.avatar_url) %>
 			<h2><%= @user.name %></h2>
 			<p><%= @user.email %></p>
 			<% if @user.id == @current_user.id %>
@@ -16,7 +17,12 @@
 			<% post = Post.find_by(id: like.post_id) %>
 			<div class="posts-show-item">
 				<div class="post-left">
-					<img src="<%= "/user_images/#{post.user.image_name}" %>">
+					<!-- <img src="<%= "/user_images/#{post.user.image_name}" %>"> -->
+					<% if post.user.avatar_url %>
+						<%= image_tag(post.user.avatar_url) %>
+					<% else %>
+						<%= image_tag("/user_images/default_user.jpeg") %>
+					<% end %>
 				</div>
 				<div class="post-right">
 					<div class="post-user-name">

@@ -19,12 +19,10 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.new(
-  		name: params[:name],
-      account_name: params[:account_name],
-  		email: params[:email],
-  		image_name: "default_user.jpeg",
-      password: params[:password]
-  		)
+      user_params
+  	)
+    @user.image_name = "default_user.jpeg"
+
   	if @user.save
       session[:user_id] = @user.id
   		flash[:notice] = "ユーザー登録が完了しました。TweetAppへようこそ！"
@@ -40,14 +38,14 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find_by(id: params[:id])
-  	@user.name = params[:name]
-  	@user.email = params[:email]
-    @user.introduction = params[:introduction]
+  	@user.name = params[:user][:name]
+    @user.introduction = params[:user][:introduction]
+    @user.avatar = params[:user][:avatar]
 
-  	if params[:image]
-	  	@user.image_name = "#{@user.id}.jpg"
-  		image = params[:image]
-  		File.binwrite("public/user_images/#{@user.image_name}", image.read)
+  	if params[:user][:avatar]
+	   @user.image_name = "#{@user.id}.jpg"
+  	 image = params[:user][:avatar]
+  	 File.binwrite("public/user_images/#{@user.image_name}", image.read)
   	end
 
   	if @user.save
@@ -94,4 +92,8 @@ class UsersController < ApplicationController
     end    
   end
 
+  private
+  def user_params
+    params.require(:user).permit(:name, :account_name, :email, :password, :image_name, :avatar, :introduction)  
+  end
 end
