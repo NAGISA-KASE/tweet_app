@@ -25,7 +25,7 @@
             <li><%= link_to("みんなのつぶやき", "/posts/index") %></li>
             <li><%= link_to("新規投稿", "/posts/new") %></li>
             <li><%= link_to("ユーザー一覧", "/users/index") %></li>
-            <li><%= link_to("ログアウト", "/logout", {method: :post}) %></li>
+            <li><%= link_to("ログアウト", "/logout", method: :post) %></li>
             <li><%= link_to("/users/#{@current_user.id}") do %>
                   <% if @current_user.avatar_url %>    
                     <%= image_tag(@current_user.avatar_url) %>
