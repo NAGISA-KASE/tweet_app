@@ -42,11 +42,11 @@ class UsersController < ApplicationController
     @user.introduction = params[:user][:introduction]
     @user.avatar = params[:user][:avatar]
 
-  	if params[:user][:avatar]
-	   @user.image_name = "#{@user.id}.jpg"
-  	 image = params[:user][:avatar]
-  	 File.binwrite("public/user_images/#{@user.image_name}", image.read)
-  	end
+  	#if params[:user][:avatar]
+	   #@user.image_name = "#{@user.id}.jpg"
+  	 #image = params[:user][:avatar]
+  	 #File.binwrite("public/user_images/#{@user.image_name}", image.read)
+  	#end
 
   	if @user.save
   		flash[:notice] = "ユーザー情報を編集しました"
