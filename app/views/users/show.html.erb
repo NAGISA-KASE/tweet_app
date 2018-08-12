@@ -1,8 +1,11 @@
 <div class="main user-show">
 	<div class="container">
 		<div class="user">
-			<%= image_tag(@user.avatar_url) %>
-			<!-- <img src="<%= "/user_images/#{@user.image_name}" %>"> -->
+			<% if @user.avatar_url %>
+				<%= image_tag(@user.avatar_url) %>
+			<% else %>
+				<%= image_tag("/user_images/default_user.jpeg") %>
+			<% end %>
 			<h2><%= @user.name %></h2>
 			<p><%= @user_account %></p>
 			<% if @user.introduction %>
@@ -21,7 +24,6 @@
 		<% @user.posts.order(created_at: :desc).each do |post| %>
 			<div class="posts-show-item">
 				<div class="post-left">
-					<!-- <img src="<%= "/user_images/#{post.user.image_name}" %>"> -->
 					<% if post.user.avatar_url %>
 						<%= image_tag(post.user.avatar_url) %>
 					<% else %>

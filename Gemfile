@@ -66,3 +66,4 @@ gem 'heroku'
 gem 'cloudinary'
 gem 'carrierwave'
 
+gem 'rails_12factor', group: :production
