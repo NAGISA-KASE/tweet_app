@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get "users/:id/edit" => "users#edit" # ユーザー編集ページ
   #post "users/:id/update" , as:"users"
-  patch "users/:id/update" => "users#update", as:"user" # ユーザー編集内容保存機能
+  put "users/:id/update" => "users#update", as:"user" # ユーザー編集内容保存機能
   get "users/:id/likes" => "users#likes" #ユーザーがいいね！した投稿一覧ページ
   # ---------------------- posts ----------------------------------
   get "posts/index" => "posts#index"  # 投稿一覧
