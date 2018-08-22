@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # ---------------------- users ----------------------------------
   get "login" => "users#login_form" # ログインページ
   post "login" => "users#login" #ログイン機能
-  post "logout" => "users#logout" #ログアウト機能
+   "logout" => "users#logout" #ログアウト機能
 
   get "users/index" # ユーザー一覧ページ
   get "users/:id" => "users#show" # ユーザー詳細ページ
@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy" # 投稿削除機能
 
   # ---------------------- home ----------------------------------
-  get "/" => "home#top"
+  root :to => "home#top"
   get "/about" => "home#about"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
