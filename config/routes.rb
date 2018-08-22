@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # ---------------------- users ----------------------------------
   get "login" => "users#login_form" # ログインページ
   post "login" => "users#login" #ログイン機能
-   "logout" => "users#logout" #ログアウト機能
+  get "logout" => "users#logout" #ログアウト機能
 
   get "users/index" # ユーザー一覧ページ
   get "users/:id" => "users#show" # ユーザー詳細ページ
