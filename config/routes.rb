@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit" # 投稿編集ページ
   post "posts/:id/update" => "posts#update" # 編集内容保存機能
 
-  post "posts/:id/destroy" => "posts#destroy" # 投稿削除機能
+  get "posts/:id/destroy" => "posts#destroy" # 投稿削除機能
 
   # ---------------------- home ----------------------------------
   root :to => "home#top"
