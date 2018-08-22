@@ -7,7 +7,12 @@
 				<%= image_tag("/user_images/default_user.jpeg") %>
 			<% end %>
 			<h2><%= @user.name %></h2>
-			<p><%= @user.email %></p>
+			<p><%= @user_account %></p>
+			<% if @user.introduction %>
+				<div class="balloon">
+					<p><%= @user.introduction %></p>
+				</div>
+			<% end %>
 			<% if @user.id == @current_user.id %>
 				<%= link_to("編集", "/users/#{@user.id}/edit") %>
 			<% end %>
