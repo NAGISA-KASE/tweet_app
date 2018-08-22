@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post "posts/:id/destroy" => "posts#destroy" # 投稿削除機能
 
   # ---------------------- home ----------------------------------
-  get "/" => "home#top"
+  root :to => "home#top"
   get "/about" => "home#about"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
