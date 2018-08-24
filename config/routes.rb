@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # ---------------------- likes ----------------------------------
   post "likes/:post_id/create" => "likes#create" # いいね！機能
-  post "likes/:post_id/destroy" => "likes#destroy" # いいね！取り消し機能
+  get "likes/:post_id/destroy" => "likes#destroy" # いいね！取り消し機能
 
-  post "likes/:post_id/create_index" => "likes#create_index" # 投稿一覧ページ用いいね！機能
-  post "likes/:post_id/destroy_index" => "likes#destroy_index" # 投稿一覧ページ用いいね！取り消し機能
+  get "likes/:post_id/create_index" => "likes#create_index" # 投稿一覧ページ用いいね！機能
+  get "likes/:post_id/destroy_index" => "likes#destroy_index" # 投稿一覧ページ用いいね！取り消し機能
   # ---------------------- users ----------------------------------
   get "login" => "users#login_form" # ログインページ
   post "login" => "users#login" #ログイン機能
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
   get "posts/:id/edit" => "posts#edit" # 投稿編集ページ
   post "posts/:id/update" => "posts#update" # 編集内容保存機能
 
-  post "posts/:id/destroy" => "posts#destroy" # 投稿削除機能
+  get "posts/:id/destroy" => "posts#destroy" # 投稿削除機能
 
   # ---------------------- home ----------------------------------
   root :to => "home#top"
