@@ -11,7 +11,7 @@
 						<%= message %>
 					</div>
 				<% end %>
-				<%= form_with model: @user do |f| %>
+				<%= form_with model: @user, url: users_path, local: true do |f| %>
 					<%= f.label :name, "名前" %>
 					<p class="attention">※16文字以内。名前は後から変更できます。</p>
 					<%= f.text_field :name, value: @user.name %>

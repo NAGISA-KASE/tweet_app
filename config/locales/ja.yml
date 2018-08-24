@@ -3,6 +3,12 @@ ja:
     models:
       post: 投稿
     attributes:
+      user:
+        name: 名前
+        email: メールアドレス
+        account_name: アカウント名
+        introduction: 自己紹介
+        password: パスワード
       post:
         title: タイトル
         content: 内容

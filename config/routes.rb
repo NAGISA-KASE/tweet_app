@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   # ---------------------- users ----------------------------------
   get "login" => "users#login_form" # ログインページ
   post "login" => "users#login" #ログイン機能
-  post "logout" => "users#logout" #ログアウト機能
+  get "logout" => "users#logout" #ログアウト機能
 
   get "users/index" # ユーザー一覧ページ
   get "users/:id" => "users#show" # ユーザー詳細ページ
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   post "users/create" => "users#create", as:"users" # 新規登録保存機能
 
   get "users/:id/edit" => "users#edit" # ユーザー編集ページ
-  #post "users/:id/update" , as:"users"
   patch "users/:id/update" => "users#update", as:"user" # ユーザー編集内容保存機能
   get "users/:id/likes" => "users#likes" #ユーザーがいいね！した投稿一覧ページ
   # ---------------------- posts ----------------------------------

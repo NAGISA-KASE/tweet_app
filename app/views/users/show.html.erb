@@ -8,7 +8,7 @@
 			<% end %>
 			<h2><%= @user.name %></h2>
 			<p><%= @user_account %></p>
-			<% if @user.introduction %>
+			<% if @user.introduction.present? %>
 				<div class="balloon">
 					<p><%= @user.introduction %></p>
 				</div>
