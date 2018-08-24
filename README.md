@@ -1,6 +1,6 @@
 # README
 ProgateでRuby on Railsを学習し、ツイートアプリを作成しました。<br>
-【開発環境】<br>
+【開発環境】
 <ul>
   <li>Ruby 2.4.4</li>
   <li>Rails 5.2.0</li>
