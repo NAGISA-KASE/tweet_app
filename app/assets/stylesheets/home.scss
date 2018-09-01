@@ -42,6 +42,11 @@ p {
 	clear: both;
 }
 
+header {
+	z-index: 10;
+	position: fixed;
+}
+
 .main {
 	position: absolute;
 	top: 64px;
