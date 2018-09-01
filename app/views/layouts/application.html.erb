@@ -9,7 +9,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'true' %>
   </head>
   <body>
-    <header>
+    <header class="<%= controller.controller_name %>">
       <div class="header-logo">
         <% if @current_user %>
           <%= link_to("TweetApp", "/posts/index") %>
