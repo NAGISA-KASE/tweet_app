@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # ---------------------- likes ----------------------------------
-  post "likes/:post_id/create" => "likes#create" # いいね！機能
+  get "likes/:post_id/create" => "likes#create" # いいね！機能
   get "likes/:post_id/destroy" => "likes#destroy" # いいね！取り消し機能
 
   get "likes/:post_id/create_index" => "likes#create_index" # 投稿一覧ページ用いいね！機能
