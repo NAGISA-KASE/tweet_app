@@ -67,3 +67,6 @@ gem 'cloudinary'
 gem 'carrierwave'
 
 gem 'rails_12factor', group: :production
+
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
